@@ -43,6 +43,8 @@ abstract class Document
 
         if ($extension === null) {
             $extension = strtolower(pathinfo($this->filename, PATHINFO_EXTENSION));
+        } else {
+            $extension = strtolower($extension);
         }
         if (! isset(self::$extension2mimetype[$extension])) {
             throw new \InvalidArgumentException("file extension {$extension} not supported");
