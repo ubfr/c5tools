@@ -6,6 +6,14 @@ Note that the first published version was v0.8.0. The commits for older versions
 
 ## [Unreleased]
 
+## 2025-12-18 - v0.8.2
+
+- Changed: Update dependencies to latest versions
+
+## 2025-08-19 - v0.8.1
+
+- Fixed: MIME type detection for file extensions specified in upper or mixed case (#1)
+
 ## 2025-08-05 - v0.8.0
 
 - Changed: Replace Sushi with (Counter)Api in file, class, method and variable names
