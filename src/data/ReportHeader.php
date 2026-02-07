@@ -623,6 +623,9 @@ abstract class ReportHeader implements CheckedDocument
         $institutionIds = [];
         if ($this->get('Institution_ID') !== null) {
             foreach (($this->get('Institution_ID')->get('Proprietary') ?? []) as $proprietaryInstitutionId) {
+                if ($proprietaryInstitutionId === $requestCredentials['customer_id']) {
+                    return;
+                }
                 $institutionId = explode(':', $proprietaryInstitutionId, 2)[1];
                 if ($institutionId === $requestCredentials['customer_id']) {
                     return;
