@@ -15,8 +15,7 @@ use ubfr\c5tools\CounterApiResponse;
 use ubfr\c5tools\data\ReportHeader;
 use ubfr\c5tools\data\StatusInfo;
 use ubfr\c5tools\exceptions\ConfigException;
-use Nicebooks\Isbn\IsbnTools;
-use Nicebooks\Isbn\Exception\IsbnException;
+use Nicebooks\Isbn\Internal\RangeService;
 
 trait Checks
 {
@@ -1125,24 +1124,13 @@ trait Checks
         return null;
     }
 
-    protected function formatIsbn(string $isbn, string $isbnNoHyphens = null): ?string
+    protected function formatIsbn13(string $isbn, string $isbnNoHyphens = null): ?string
     {
-        static $isbntools = null;
-
-        if ($isbntools === null) {
-            $isbntools = new IsbnTools(false, false);
-        }
-
         if ($isbnNoHyphens === null) {
             $isbnNoHyphens = str_replace('-', '', $isbn);
         }
-        try {
-            $isbn = $isbntools->format($isbnNoHyphens);
-        } catch (IsbnException $e) {
-            // ignore exception for unknown group or range, might be a recent ISBN not yet included in the rules
-        }
 
-        return $isbn;
+        return RangeService::format($isbnNoHyphens);
     }
 
     protected function checkedIsbnIdentifier(string $position, string $property, string $value): ?string
@@ -1155,8 +1143,8 @@ trait Checks
                 $hint = (strlen($value) < 17 ? 'hyphens are missing' : 'too many hyphens');
                 $this->addError($message, $message, $position, $data, $hint);
                 $this->setFixed($property, $value);
-                return $this->formatIsbn($value, $isbnNoHyphens);
-            } elseif ($this->formatIsbn($value, $isbnNoHyphens) !== $value) {
+                return $this->formatIsbn13($value, $isbnNoHyphens);
+            } elseif ($this->formatIsbn13($value, $isbnNoHyphens) !== $value) {
                 $message = "Format is wrong for {$property}";
                 $hint = 'hyphen positions are wrong';
                 $this->addWarning($message, $message, $position, $data, $hint);
@@ -1164,7 +1152,7 @@ trait Checks
                     return $value; // ISBN is formally wrong but might be used this way, so we keep it
                 } else {
                     $this->setFixed($property, $value);
-                    return $this->formatIsbn($value, $isbnNoHyphens);
+                    return $this->formatIsbn13($value, $isbnNoHyphens);
                 }
             } else {
                 return $value;
@@ -1182,7 +1170,7 @@ trait Checks
             $hint = 'format must be ISBN-13 with hyphens';
             $this->addError($message, $message, $position, $data, $hint);
             $this->setFixed($property, $value);
-            return $this->formatIsbn($this->getIsbn13($value));
+            return $this->formatIsbn13($this->getIsbn13($value));
         }
         $matches = [];
         if (
@@ -1194,7 +1182,7 @@ trait Checks
             $this->addError($message, $message, $position, $data, $hint);
             $this->setFixed($property, $value);
             if (strlen($matches[1]) !== 17 || substr($matches[1], 3, 1) !== '-' || substr($matches[1], 15, 1) !== '-') {
-                return $this->formatIsbn($matches[1]);
+                return $this->formatIsbn13($matches[1]);
             } else {
                 return $matches[1];
             }
@@ -1207,7 +1195,7 @@ trait Checks
             $hint = "{$property} must only contain an ISBN-13 with hyphens";
             $this->addError($message, $message, $position, $data, $hint);
             $this->setFixed($property, $value);
-            return $this->formatIsbn($this->getIsbn13($matches[1]));
+            return $this->formatIsbn13($this->getIsbn13($matches[1]));
         }
 
         $message = "{$property} value is invalid";
