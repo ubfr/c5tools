@@ -6,6 +6,7 @@ Note that the first published version was v0.8.0. The commits for older versions
 
 ## [Unreleased]
 
+- Fixed: Take customer_ids with namespace into account when comparing with proprietary Institution_ID (#7)
 - Fixed: Remove broken fix for Unique_Title metrics with Section_Type Book
 
 ## 2025-12-18 - v0.8.2
