@@ -14,8 +14,8 @@
 		"php": ">=8.2",
 		"ext-fileinfo": "*",
 		"guzzlehttp/guzzle": "^7.10",
-		"nicebooks/isbn": "^0.5",
-		"phpoffice/phpspreadsheet": "^5.3"
+		"nicebooks/isbn": "^0.6",
+		"phpoffice/phpspreadsheet": "^5.4"
 	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "^4.0",

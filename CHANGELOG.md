@@ -6,6 +6,9 @@ Note that the first published version was v0.8.0. The commits for older versions
 
 ## [Unreleased]
 
+## 2026-02-07 - v0.8.3
+
+- Changed: Upgrade nicebooks/isbn to v0.6, use RangeService instead of IsbnTools (#9)
 - Fixed: Take customer_ids with namespace into account when comparing with proprietary Institution_ID (#7)
 - Fixed: Remove broken fix for Unique_Title metrics with Section_Type Book
 
