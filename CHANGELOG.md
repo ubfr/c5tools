@@ -6,6 +6,8 @@ Note that the first published version was v0.8.0. The commits for older versions
 
 ## [Unreleased]
 
+- Fixed: Remove broken fix for Unique_Title metrics with Section_Type Book
+
 ## 2025-12-18 - v0.8.2
 
 - Changed: Update dependencies to latest versions

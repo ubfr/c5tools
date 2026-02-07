@@ -336,12 +336,7 @@ abstract class ReportItem implements \ubfr\c5tools\interfaces\CheckedDocument
                         ' for Unique_Title metric';
                     $data = $this->formatData('Section_Type/Metric_Type', "{$sectionType}/{$metricType}");
                     $this->addCriticalError($message, $message, $this->position, $data);
-                    if ($sectionType === 'Book') {
-                        unset($this->data['Section_Type']);
-                        $this->setFixed('Section_Type', $sectionType);
-                    } else {
-                        $this->setUnusable();
-                    }
+                    $this->setUnusable();
                 }
             } else {
                 if ($sectionType === null) {
