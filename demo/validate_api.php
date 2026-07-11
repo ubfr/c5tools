@@ -105,7 +105,7 @@ function print_result($response)
         $response->debug();
     }
     if ($showJson) {
-        $json = $response->getJson();
+        $json = json_decode($response->getJsonString());
         if ($json !== null) {
             print("\n");
             print(json_encode($json, JSON_PRETTY_PRINT));
