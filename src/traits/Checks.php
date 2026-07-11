@@ -1130,7 +1130,11 @@ trait Checks
             $isbnNoHyphens = str_replace('-', '', $isbn);
         }
 
-        return RangeService::format($isbnNoHyphens);
+        $rangeInfo = RangeService::getRangeInfo($isbnNoHyphens);
+        if ($rangeInfo !== null && $rangeInfo->parts !== null) {
+            return implode('-', $rangeInfo->parts);
+        }
+        return $isbnNoHyphens;
     }
 
     protected function checkedIsbnIdentifier(string $position, string $property, string $value): ?string

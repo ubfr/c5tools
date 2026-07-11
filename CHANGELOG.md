@@ -6,6 +6,8 @@ Note that the first published version was v0.8.0. The commits for older versions
 
 ## [Unreleased]
 
+- Changed: Upgrade nicebooks/isbn to v0.8, adapt ISBN13 formatting (#20)
+
 ## 2026-02-07 - v0.8.3
 
 - Changed: Upgrade nicebooks/isbn to v0.6, use RangeService instead of IsbnTools (#9)
