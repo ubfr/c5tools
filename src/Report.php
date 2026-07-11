@@ -47,7 +47,7 @@ abstract class Report implements interfaces\CheckedDocument // , \Countable, \It
         $this->parseHeader();
     }
 
-    public static function fromFile(string $filename, string $extension = null): Report
+    public static function fromFile(string $filename, ?string $extension = null): Report
     {
         $document = new FileDocument($filename, $extension);
         if ($document->isJson()) {

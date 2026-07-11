@@ -6,6 +6,7 @@ Note that the first published version was v0.8.0. The commits for older versions
 
 ## [Unreleased]
 
+- Fixed: PHP 8.4 deprecation warnings for implicit nullable parameters (#22)
 - Changed: Upgrade nicebooks/isbn to v0.8, adapt ISBN13 formatting (#20)
 
 ## 2026-02-07 - v0.8.3

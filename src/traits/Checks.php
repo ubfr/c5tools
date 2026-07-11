@@ -1124,7 +1124,7 @@ trait Checks
         return null;
     }
 
-    protected function formatIsbn13(string $isbn, string $isbnNoHyphens = null): ?string
+    protected function formatIsbn13(string $isbn, ?string $isbnNoHyphens = null): ?string
     {
         if ($isbnNoHyphens === null) {
             $isbnNoHyphens = str_replace('-', '', $isbn);

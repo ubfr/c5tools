@@ -20,7 +20,7 @@ class ReportFilterList extends NameValueList
         \ubfr\c5tools\interfaces\CheckedDocument $parent,
         string $position,
         $document,
-        array $filterNames = null
+        ?array $filterNames = null
     ) {
         $this->reportId = $parent->getReportId();
         $this->filtersConfig = $parent->getConfig()->getReportFilters($this->reportId);
