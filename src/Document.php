@@ -36,7 +36,7 @@ abstract class Document
 
     protected $document = null;
 
-    protected function fromFile(string $filename, string $extension = null): void
+    protected function fromFile(string $filename, ?string $extension = null): void
     {
         $this->checkFile($filename);
         $this->filename = $filename;

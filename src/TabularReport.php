@@ -17,7 +17,7 @@ use ubfr\c5tools\data\TabularItemList51;
 
 class TabularReport extends Report
 {
-    public function __construct(Document $document, CounterApiRequest $request = null)
+    public function __construct(Document $document, ?CounterApiRequest $request = null)
     {
         if ($document->isJson()) {
             throw new \InvalidArgumentException('document is not valid for tabular Report');

@@ -53,7 +53,7 @@ class CounterApiException extends \Exception implements
         'Info'
     ];
 
-    public function __construct(Document $document, CounterApiRequest $request = null)
+    public function __construct(Document $document, ?CounterApiRequest $request = null)
     {
         if (! $document->isException()) {
             throw new \InvalidArgumentException("document is not valid for CounterApiException");

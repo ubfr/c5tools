@@ -14,7 +14,7 @@ use ubfr\c5tools\exceptions\InvalidFileDocumentException;
 
 class FileDocument extends Document
 {
-    public function __construct(string $filename, string $extension = null)
+    public function __construct(string $filename, ?string $extension = null)
     {
         try {
             $this->fromFile($filename, $extension);

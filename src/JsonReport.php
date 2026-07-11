@@ -24,7 +24,7 @@ class JsonReport extends Report implements interfaces\JsonDocument
 
     protected $jsonItems;
 
-    public function __construct(Document $document, CounterApiRequest $request = null)
+    public function __construct(Document $document, ?CounterApiRequest $request = null)
     {
         if (! $document->isReport()) {
             throw new \InvalidArgumentException('document is not valid for Report');
