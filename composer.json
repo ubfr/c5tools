@@ -13,14 +13,14 @@
 	"require": {
 		"php": ">=8.2",
 		"ext-fileinfo": "*",
-		"guzzlehttp/guzzle": "^7.10",
-		"nicebooks/isbn": "^0.6",
-		"phpoffice/phpspreadsheet": "^5.4"
+		"guzzlehttp/guzzle": "^7.14",
+		"nicebooks/isbn": "^0.8",
+		"phpoffice/phpspreadsheet": "^5.8"
 	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "^4.0",
 		"phpmd/phpmd": "^2.15",
-		"phpstan/phpstan": "^2.1"
+		"phpstan/phpstan": "^2.2"
 	},
 	"autoload": {
 		"psr-4": {
