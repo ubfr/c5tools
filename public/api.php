@@ -130,8 +130,8 @@ try {
 }
 
 $file = null;
-if ($response && method_exists($response, 'getJson')) {
-    $json_file = json_encode($response->getJson());
+if ($response instanceof \ubfr\c5tools\interfaces\JsonDocument) {
+    $json_file = $response->getJsonString();
     if ($json_file) {
         $compressed = gzcompress($json_file, 3);
         if ($compressed) {
