@@ -8,8 +8,9 @@ Note that the first published version was v0.8.0. The commits for older versions
 
 ## 2026-11-27 - v0.8.4
 
-- Fixed: PHP 8.4 deprecation warnings for implicit nullable parameters (#22)
 - Fixed: Check for default Report_Filter values in R5.1 reports (#27)
+- Fixed: PHP 8.4 deprecation warnings for implicit nullable parameters (#22)
+- Fixed: Return original instead of fixed JSON in public/api.php and demo/validate_api.php (#18)
 - Changed: Upgrade nicebooks/isbn to v0.8, adapt ISBN13 formatting (#20)
 
 ## 2026-02-07 - v0.8.3
