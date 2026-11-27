@@ -21,9 +21,9 @@ class FailedCounterApiRequestException extends CounterApiRequestException
         string $message,
         string $url,
         RequestInterface $request,
-        ResponseInterface $response = null,
+        ?ResponseInterface $response = null,
         int $code = 0,
-        \Throwable $previous = null
+        ?\Throwable $previous = null
     ) {
         parent::__construct($message, $url, $request, $code, $previous);
         $this->response = $response;
