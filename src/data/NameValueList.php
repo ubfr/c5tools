@@ -195,10 +195,13 @@ abstract class NameValueList extends KeyValueList implements \Countable, \Iterat
                     $index = $this->indices[$name][$i];
                     $this->setIndex($index);
                     $this->setFixed('.', $this->entries[$index]);
-                    $this->setIndex(null);
                 } else {
+                    if (! in_array($name, $this->singleValueNames)) {
+                        $this->setIndex($i);
+                    }
                     $this->setFixed($name, $this->values[$name][$i]);
                 }
+                $this->setIndex(null);
                 unset($this->values[$name][$i]);
                 unset($this->indices[$name][$i]);
             }
