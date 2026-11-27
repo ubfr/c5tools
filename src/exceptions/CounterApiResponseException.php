@@ -23,7 +23,7 @@ abstract class CounterApiResponseException extends \Exception
         string $url,
         ResponseInterface $response,
         int $code = 0,
-        \Throwable $previous = null
+        ?\Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
         $this->url = $url;

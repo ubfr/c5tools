@@ -21,9 +21,9 @@ abstract class CounterApiRequestException extends \Exception
     public function __construct(
         string $message,
         string $url,
-        RequestInterface $request = null,
+        ?RequestInterface $request = null,
         int $code = 0,
-        \Throwable $previous = null
+        ?\Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
         $this->url = $url;
